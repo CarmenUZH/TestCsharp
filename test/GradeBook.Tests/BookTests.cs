@@ -55,7 +55,17 @@ namespace GradeBook.Tests
         
         }
 
-            [Fact] //Dont forget Fact if you want to test
+        [Fact] //Dont forget Fact if you want to test
+            public void TestChangeNameFromValue()
+        {
+            // arrange
+            var bookoldname = new Book("name");
+            bookoldname.SetName("newname");
+                     
+             Assert.Equal("newname", bookoldname.GetName());
+        }
+
+        [Fact] //Dont forget Fact if you want to test
             public void TestTwoVarsSameObject()
         {
             // arrange
@@ -63,6 +73,7 @@ namespace GradeBook.Tests
             var book2 = book1;
 
             Assert.Same(book1,book2);
+            Assert.True(Object.ReferenceEquals(book1,book2));
                      
         
         }
@@ -76,6 +87,31 @@ namespace GradeBook.Tests
             Assert.NotSame(book1,book2);
                      
         
+        }
+
+                 [Fact] //Dont forget Fact if you want to test
+            public void TestChangeNameFalseforCopy()
+        {
+            // arrange
+            var book1 = new Book("name");
+            var book2 = new Book("Lame Name");
+            GetBookSetName(book1, "New Name");
+            GetBookSetNamebyRef(ref book2, "New Name"); // make it clear you want to pass by refrence with ref
+
+            Assert.NotEqual("New Name", book1.GetName());
+            Assert.Equal( "New Name", book2.GetName());
+                     
+        
+        }
+
+        private void GetBookSetName(Book book1, string name) //Copies book, does not change original
+        {
+         book1 = new Book(name); //new reference
+        }
+
+         private void GetBookSetNamebyRef(ref Book book1, string name) //Pass by reference
+        {
+         book1 = new Book(name);
         }
     }
 }

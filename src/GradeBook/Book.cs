@@ -15,7 +15,7 @@ namespace GradeBook
     double myHighestGrade = double.MinValue; //Lowest possible double to start out
 
     public List<double> noten; //even if in constructor, needs to be in class too
-    public string Bookname;
+    private string Bookname;
 
         public void AddGrade(double note){ //Non static, requires book to work (Instance Method)
       if (note >= lowestPossibleGrade && note <=highestPossibleGrade){
@@ -55,6 +55,11 @@ namespace GradeBook
         return Bookname;
       }
   
+
+        public void SetName(string newname)
+        {
+            this.Bookname = newname;
+        }
 
 
       public Statistics GetStatistics(){
