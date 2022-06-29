@@ -1,7 +1,7 @@
 using System;
 using Xunit;
 //test with dotnet test
-namespace GradeBook.Tests
+namespace GradeBook.Tests //CREATE A SOLUTION FILE WITH: cd to gradebook and then "dotnet new sln" and then "dotnet add src\GradeBook\GradeBook.csproj" and the GradeBook.Test.csproj File
 {    
     public class BookTests
     {
@@ -113,5 +113,9 @@ namespace GradeBook.Tests
         {
          book1 = new Book(name);
         }
+
+        /*
+        Important: Strings are refernece types but behave like value types
+        */
     }
 }
