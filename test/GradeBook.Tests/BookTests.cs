@@ -116,6 +116,8 @@ namespace GradeBook.Tests //CREATE A SOLUTION FILE WITH: cd to gradebook and the
 
         /*
         Important: Strings are refernece types but behave like value types
+        Return copies of strings, not refrences
+        Strings are immutable
         */
     }
 }
