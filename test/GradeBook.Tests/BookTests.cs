@@ -6,23 +6,23 @@ namespace GradeBook.Tests //CREATE A SOLUTION FILE WITH: cd to gradebook and the
     public class BookTests
     {
 
-  /*      [Fact]
-        public void TestWrongInput()
-        {
-            // arrange
-            var book = new Book("name");
-            book.AddGrade(8.1);//ZU HOCH
-            book.AddGrade(1.0);
-            book.AddGrade(0.4);//ZU TIEF
+        /*      [Fact]
+              public void TestWrongInput()
+              {
+                  // arrange
+                  var book = new Book("name");
+                  book.AddGrade(8.1);//ZU HOCH
+                  book.AddGrade(1.0);
+                  book.AddGrade(0.4);//ZU TIEF
 
 
-            // act
-            var result = book.GetStatistics();//vergiss die klammern nicht!!
+                  // act
+                  var result = book.GetStatistics();//vergiss die klammern nicht!!
 
-            // assert
-            Assert.NotEqual(8.1, result.High);
-            Assert.NotEqual(0.4, result.Low);
-        }*/
+                  // assert
+                  Assert.NotEqual(8.1, result.High);
+                  Assert.NotEqual(0.4, result.Low);
+              }*/
 
         [Fact]
         public void TestException_TooHigh()
