@@ -1,13 +1,14 @@
 using System;
 using Xunit;
- 
+
 namespace GradeBook.Tests
-{    
+{
 
     public delegate string WriteLogDelegate(string logMessage); //delegates what a method is supposed to look like
+    //Delegates can invoke multiple methods
 
     public class TypeTests
-    {    
+    {
         int count = 0;
 
         [Fact]
@@ -15,20 +16,23 @@ namespace GradeBook.Tests
         {
             WriteLogDelegate log = ReturnMessage;
             log += ReturnMessage; //Point log to method
-            //log += IncrementCount;
+            //We are callign Return message twice, first in line 17 and then in like 18 so count goes up two times
 
-            var result = log("Hello!"); //Log was defined to point to ReturnMessage so this works
-            Assert.Equal("Hello!", result);
+            log += IncrementCount; //count goes up a third time
+
+            var result = log("Hello!");
+            Assert.Equal("hello!", result); //Increment count made it smaller 
+            Assert.Equal(3, count);
         }
 
 
-        /*
-        string IncrementCount(string message) //Method you invoke
+
+        string IncrementCount(string message) //Delegate type still matches
         {
             count++;
             return message.ToLower();
         }
-*/
+
         string ReturnMessage(string message)  //Method you invoke
         {
             count++;
