@@ -6,7 +6,7 @@ namespace GradeBook.Tests //CREATE A SOLUTION FILE WITH: cd to gradebook and the
     public class BookTests
     {
 
-        [Fact]
+  /*      [Fact]
         public void TestWrongInput()
         {
             // arrange
@@ -22,6 +22,13 @@ namespace GradeBook.Tests //CREATE A SOLUTION FILE WITH: cd to gradebook and the
             // assert
             Assert.NotEqual(8.1, result.High);
             Assert.NotEqual(0.4, result.Low);
+        }*/
+
+        [Fact]
+        public void TestException_TooHigh()
+        {
+            var book = new Book("name");
+            Assert.Throws<ArgumentException>(() => book.AddGrade(8.1)); //Test exceptions!! :D
         }
 
         [Fact]
@@ -60,9 +67,9 @@ namespace GradeBook.Tests //CREATE A SOLUTION FILE WITH: cd to gradebook and the
         {
             // arrange
             var bookoldname = new Book("name");
-            bookoldname.SetName("newname");
+            bookoldname.Bookname = "newname";
 
-            Assert.Equal("newname", bookoldname.GetName());
+            Assert.Equal("newname", bookoldname.Bookname);
         }
 
         [Fact] //Dont forget Fact if you want to test
@@ -98,8 +105,8 @@ namespace GradeBook.Tests //CREATE A SOLUTION FILE WITH: cd to gradebook and the
             GetBookSetName(book1, "New Name");
             GetBookSetNamebyRef(ref book2, "New Name"); // make it clear you want to pass by refrence with ref
 
-            Assert.NotEqual("New Name", book1.GetName());
-            Assert.Equal("New Name", book2.GetName());
+            Assert.NotEqual("New Name", book1.Bookname);
+            Assert.Equal("New Name", book2.Bookname);
 
 
         }
@@ -127,16 +134,16 @@ namespace GradeBook.Tests //CREATE A SOLUTION FILE WITH: cd to gradebook and the
         [Fact] //Dont forget Fact if you want to test
         public void TestLetter()
         {
-   // arrange
+            // arrange
             var booke = new Book("name");
             booke.AddGrade(5.1);
             booke.AddGrade(4.1);
             booke.AddGrade(3.1);
 
-            var stats  = booke.GetStatistics();
-            
+            var stats = booke.GetStatistics();
+
             Assert.Equal('C', stats.Letter);
-               }
+        }
 
         private void GetBookSetName(Book book1, string name) //Copies book, does not change original
         {

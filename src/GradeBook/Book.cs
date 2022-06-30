@@ -6,7 +6,7 @@ namespace GradeBook
     {
         public Book(string Bookname)
         { //constructor method
-            this.Bookname = Bookname; //Public variables usually have upper-case names
+            this.bookname = Bookname; //Public variables usually have upper-case names
             noten = new List<double>(); //class variable
 
         }
@@ -16,7 +16,23 @@ namespace GradeBook
         double myHighestGrade = double.MinValue; //Lowest possible double to start out
 
         public List<double> noten; //even if in constructor, needs to be in class too
-        private string Bookname;
+        private string bookname;
+        public const string CONSTANTSTRING = "Heheh you can't change me"; //Constant means you cant change it, uppercase to visually identify
+      
+        public string Bookname //Can be simplified with just "get; set;" like we've seen in .NETCore
+        {
+            get
+            {
+                return bookname; //I could define that ALL names should be in upper case or something
+            }
+            set //You can make set private so your value is readonly
+            {
+                if (!String.IsNullOrEmpty(value))
+                {
+                    bookname = value;
+                }
+            }
+        }
 
         public void AddGrade(double note)
         { //Non static, requires book to work (Instance Method)
@@ -27,11 +43,11 @@ namespace GradeBook
             else
             {
                 System.Console.WriteLine("Trying to add illegal grade");
-                throw new ArgumentException($"You cannot add this grade {nameof(note)}"); //Exceptions!! Like in Software Construction!!
+                throw new ArgumentException("You cannot add this grade"); //Exceptions!! Like in Software Construction!!
             }
         }
 
-        public void AddLetterGrade(char letter)
+        public void AddGrade(char letter)
         {
             switch (letter)
             {
@@ -89,17 +105,6 @@ namespace GradeBook
         private double FindAverage()
         {
             return noten.AsQueryable().Average();
-        }
-
-        public string GetName()
-        {
-            return Bookname;
-        }
-
-
-        public void SetName(string newname)
-        {
-            this.Bookname = newname;
         }
 
         public int[] LoopMe()
@@ -176,7 +181,7 @@ namespace GradeBook
             Console.WriteLine("The highest value: " + FindHighest()); //Average ist weeeeird
             System.Console.WriteLine("The lowest value: " + FindLowest());
             System.Console.WriteLine($"The average grade is {FindAverage():N2}"); //Formatting: Zwei zahlen nach dem Komma
-            System.Console.WriteLine("The book belongs to: " + GetName());
+            System.Console.WriteLine("The book belongs to: " + Bookname);
         }
     }
 }

@@ -26,7 +26,8 @@ namespace GradeBook
             book.AddGrade(pi);//Me in French LMAO
             book.AddGrade(fi);
 
-            Console.WriteLine("Are you ready to see your Grades? [Y] [N]");
+
+            Console.WriteLine($"Are you ready to see your Grades, {book.Bookname}? [Y] [N]");
             var input = Console.ReadLine();
             var done = false;
             while (!done)
@@ -54,8 +55,10 @@ namespace GradeBook
             secondbook.AddGrade(GetRandomNumber());
             secondbook.AddGrade(GetRandomNumber());
             secondbook.AddGrade(GetRandomNumber());
-            secondbook.AddLetterGrade('A');
+            secondbook.AddGrade('A'); //Overload, but compiler knows which one i mean
             secondbook.AddGrade(GetRandomNumber());
+            string imsaying = Book.CONSTANTSTRING; //Because CONSTANTSTRING is constant i can treat it like a static thingy
+            System.Console.WriteLine(imsaying);
             secondbook.ShowStatistics();
 
             /*
