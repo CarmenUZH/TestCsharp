@@ -140,9 +140,35 @@ namespace GradeBook
             result.High = FindHighest();
             result.Low = FindLowest();
 
+            switch (result.Average)
+            {
+                case var d when d >= 5.5:
+                    result.Letter = 'A';
+                    break;
+                case var d when d >= 4.5:
+                    result.Letter = 'B';
+                    break;
 
+                case var d when d >= 3.5:
+                    result.Letter = 'C';
+                    break;
+                case var d when d >= 2.5:
+                    result.Letter = 'D';
+                    break;
+
+                case var d when d >= 2:
+                    result.Letter = 'E';
+                    break;
+
+                default:
+                    result.Letter = 'F';
+                    break;
+            }
             return result;
         }
+
+
+
         public void ShowStatistics()
         {
 

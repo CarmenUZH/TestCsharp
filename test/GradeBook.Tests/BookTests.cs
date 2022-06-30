@@ -124,6 +124,20 @@ namespace GradeBook.Tests //CREATE A SOLUTION FILE WITH: cd to gradebook and the
 
         }
 
+        [Fact] //Dont forget Fact if you want to test
+        public void TestLetter()
+        {
+   // arrange
+            var booke = new Book("name");
+            booke.AddGrade(5.1);
+            booke.AddGrade(4.1);
+            booke.AddGrade(3.1);
+
+            var stats  = booke.GetStatistics();
+            
+            Assert.Equal('C', stats.Letter);
+               }
+
         private void GetBookSetName(Book book1, string name) //Copies book, does not change original
         {
             book1 = new Book(name); //new reference

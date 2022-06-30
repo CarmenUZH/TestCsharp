@@ -25,8 +25,25 @@ namespace GradeBook
             book.AddGrade(GetRandomNumber());
             book.AddGrade(pi);//Me in French LMAO
             book.AddGrade(fi);
+
+            Console.WriteLine("Are you ready to see your Grades? [Y] [N]");
+            var input = Console.ReadLine();
+            var done = false;
+            while (!done)
+            {
+                if (input == "Y" || input == "y")
+                {
+                    break;
+                }
+                Console.WriteLine("Im asking again: Are you ready?");
+                input = Console.ReadLine(); //WHILE LOOP!! NEVER FORGET
+
+            }
+
             book.ShowStatistics();
             System.Console.WriteLine(book.GetStatistics().High);
+            var stats = book.GetStatistics();
+            System.Console.WriteLine($"The Letter is {stats.Letter}");
 
             System.Console.WriteLine("______________________________________________________________________________");
 
