@@ -35,6 +35,9 @@ namespace GradeBook
                 {
                     break;
                 }
+
+                //Check his code to see example of Try and Catch ( Or check SoftCon)
+
                 Console.WriteLine("Im asking again: Are you ready?");
                 input = Console.ReadLine(); //WHILE LOOP!! NEVER FORGET
 
