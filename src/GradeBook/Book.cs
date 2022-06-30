@@ -27,6 +27,7 @@ namespace GradeBook
             else
             {
                 System.Console.WriteLine("Trying to add illegal grade");
+                throw new ArgumentException($"You cannot add this grade {nameof(note)}"); //Exceptions!! Like in Software Construction!!
             }
         }
 
