@@ -103,6 +103,20 @@ namespace GradeBook.Tests //CREATE A SOLUTION FILE WITH: cd to gradebook and the
                      
         
         }
+         [Fact] //Dont forget Fact if you want to test
+            public void TestLoop()
+        {
+            // arrange
+            var booke = new Book("name");
+            booke.AddGrade(5.1);
+            booke.AddGrade(4.1);
+            booke.AddGrade(3.1);
+            
+            var result = booke.LoopMe();
+            Assert.Equal( 0, result);
+                     
+        
+        }
 
         private void GetBookSetName(Book book1, string name) //Copies book, does not change original
         {
@@ -120,4 +134,5 @@ namespace GradeBook.Tests //CREATE A SOLUTION FILE WITH: cd to gradebook and the
         Strings are immutable
         */
     }
+      
 }
