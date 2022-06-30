@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 namespace GradeBook
 {
+
     public class Book
     {
         public Book(string Bookname)
@@ -39,6 +40,7 @@ namespace GradeBook
             if (note >= lowestPossibleGrade && note <= highestPossibleGrade)
             {
                 noten.Add(note);
+                //Someone might want to know when something was added, use delegates so that no matter what this person wants to do with the information, they have access to it (see usageDel.png in Downloads folder)
             }
             else
             {
