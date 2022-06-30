@@ -61,13 +61,20 @@ namespace GradeBook
             this.Bookname = newname;
         }
 
-        public int LoopMe(){ //An example function to test out loops in C#
+        public int[] LoopMe(){ //An example function to test out loops in C#
           var loopstopper= 5;
+          
           do{
               System.Console.WriteLine("This is a Loop");
               --loopstopper; //Gets passed as refrence! Huh!
-          }while(loopstopper !=0); 
-          return loopstopper;
+          }while(loopstopper !=0);
+          var funny = new List<string>(); //dont forgett var
+          for(var amount = 0; amount < 4; amount+=1){
+            funny.Add("Hehe");
+          }
+
+          int[] solution = {loopstopper, funny.Count()};
+          return solution;
         }
 
 

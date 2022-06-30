@@ -113,7 +113,11 @@ namespace GradeBook.Tests //CREATE A SOLUTION FILE WITH: cd to gradebook and the
             booke.AddGrade(3.1);
             
             var result = booke.LoopMe();
-            Assert.Equal( 0, result);
+            int first = result[0];
+            Assert.Equal( 0, first ); //"WHILE BIGGERTHAN includes the the number you want to be bigger than (when you count down)
+            int second = result[1];
+            Assert.Equal( 4, second ); //but when you count up it does not!
+          
                      
         
         }
