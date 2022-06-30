@@ -54,7 +54,7 @@ namespace GradeBook
             secondbook.AddGrade(GetRandomNumber());
             secondbook.AddGrade(GetRandomNumber());
             secondbook.AddGrade(GetRandomNumber());
-            secondbook.AddGrade(GetRandomNumber());
+            secondbook.AddLetterGrade('A');
             secondbook.AddGrade(GetRandomNumber());
             secondbook.ShowStatistics();
 
