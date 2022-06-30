@@ -3,16 +3,16 @@
 
 using System;
 namespace GradeBook
-    {
-  
+{
+
     class Program //In Csharp a class defines a type, just like string
     {
-    static void Main(string[] args)
+        static void Main(string[] args)
         {
             double GetRandomNumber()
-            { 
-            Random random = new Random();
-            return random.NextDouble() * (6 - 1) + 1;
+            {
+                Random random = new Random();
+                return random.NextDouble() * (6 - 1) + 1;
             }
 
             double pi;
@@ -37,32 +37,32 @@ namespace GradeBook
             secondbook.AddGrade(GetRandomNumber());
             secondbook.AddGrade(GetRandomNumber());
             secondbook.ShowStatistics();
-           
-/*
-            double[] numbers = new double[7]; //Initialize an array
-            numbers[0] = 1.44;
-            numbers[1]= pi;
-            numbers[2]= fi;
 
-            var grades = new[]{6,4,3};
-            fi += 5; 
+            /*
+                        double[] numbers = new double[7]; //Initialize an array
+                        numbers[0] = 1.44;
+                        numbers[1]= pi;
+                        numbers[2]= fi;
 
-            var result = 0.0;
-            foreach(var number in noten){
-                result += number; //adding all the numbers together
-            }
+                        var grades = new[]{6,4,3};
+                        fi += 5; 
 
-            result = result / noten.Count; //How many items are in this list, makes loops unnecessary
+                        var result = 0.0;
+                        foreach(var number in noten){
+                            result += number; //adding all the numbers together
+                        }
 
-            var anzNummern = 0; //Loop to count amount of entried
-            foreach(double number in numbers){
-                if(number > 0){ //Counts null too!!! Important!!
-                anzNummern += 1;
-            }}
-*/
-      
-               
-         
-    }
+                        result = result / noten.Count; //How many items are in this list, makes loops unnecessary
+
+                        var anzNummern = 0; //Loop to count amount of entried
+                        foreach(double number in numbers){
+                            if(number > 0){ //Counts null too!!! Important!!
+                            anzNummern += 1;
+                        }}
+            */
+
+
+
+        }
     }
 }

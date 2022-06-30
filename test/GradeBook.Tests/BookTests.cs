@@ -2,11 +2,11 @@ using System;
 using Xunit;
 //test with dotnet test
 namespace GradeBook.Tests //CREATE A SOLUTION FILE WITH: cd to gradebook and then "dotnet new sln" and then "dotnet add src\GradeBook\GradeBook.csproj" and the GradeBook.Test.csproj File
-{    
+{
     public class BookTests
     {
 
-               [Fact]
+        [Fact]
         public void TestWrongInput()
         {
             // arrange
@@ -14,15 +14,15 @@ namespace GradeBook.Tests //CREATE A SOLUTION FILE WITH: cd to gradebook and the
             book.AddGrade(8.1);//ZU HOCH
             book.AddGrade(1.0);
             book.AddGrade(0.4);//ZU TIEF
-            
+
 
             // act
             var result = book.GetStatistics();//vergiss die klammern nicht!!
-    
+
             // assert
             Assert.NotEqual(8.1, result.High);
             Assert.NotEqual(0.4, result.Low);
-                }
+        }
 
         [Fact]
         public void TestAverage()
@@ -35,12 +35,12 @@ namespace GradeBook.Tests //CREATE A SOLUTION FILE WITH: cd to gradebook and the
 
             var result = book.GetStatistics();
 
-            Assert.Equal(4.1,result.Average);
-                     
-        
+            Assert.Equal(4.1, result.Average);
+
+
         }
-       [Fact] //Dont forget Fact if you want to test
-            public void TestHigh()
+        [Fact] //Dont forget Fact if you want to test
+        public void TestHigh()
         {
             // arrange
             var book = new Book("name");
@@ -50,47 +50,47 @@ namespace GradeBook.Tests //CREATE A SOLUTION FILE WITH: cd to gradebook and the
 
             var result = book.GetStatistics();
 
-            Assert.Equal(5.1,result.High);
-                     
-        
+            Assert.Equal(5.1, result.High);
+
+
         }
 
         [Fact] //Dont forget Fact if you want to test
-            public void TestChangeNameFromValue()
+        public void TestChangeNameFromValue()
         {
             // arrange
             var bookoldname = new Book("name");
             bookoldname.SetName("newname");
-                     
-             Assert.Equal("newname", bookoldname.GetName());
+
+            Assert.Equal("newname", bookoldname.GetName());
         }
 
         [Fact] //Dont forget Fact if you want to test
-            public void TestTwoVarsSameObject()
+        public void TestTwoVarsSameObject()
         {
             // arrange
             var book1 = new Book("name");
             var book2 = book1;
 
-            Assert.Same(book1,book2);
-            Assert.True(Object.ReferenceEquals(book1,book2));
-                     
-        
+            Assert.Same(book1, book2);
+            Assert.True(Object.ReferenceEquals(book1, book2));
+
+
         }
-              [Fact] //Dont forget Fact if you want to test
-            public void TestTwoVarsDifferentObject()
+        [Fact] //Dont forget Fact if you want to test
+        public void TestTwoVarsDifferentObject()
         {
             // arrange
             var book1 = new Book("name");
-            var book2 = new Book ("name");
+            var book2 = new Book("name");
 
-            Assert.NotSame(book1,book2);
-                     
-        
+            Assert.NotSame(book1, book2);
+
+
         }
 
-                 [Fact] //Dont forget Fact if you want to test
-            public void TestChangeNameFalseforCopy()
+        [Fact] //Dont forget Fact if you want to test
+        public void TestChangeNameFalseforCopy()
         {
             // arrange
             var book1 = new Book("name");
@@ -99,37 +99,39 @@ namespace GradeBook.Tests //CREATE A SOLUTION FILE WITH: cd to gradebook and the
             GetBookSetNamebyRef(ref book2, "New Name"); // make it clear you want to pass by refrence with ref
 
             Assert.NotEqual("New Name", book1.GetName());
-            Assert.Equal( "New Name", book2.GetName());
-                     
-        
+            Assert.Equal("New Name", book2.GetName());
+
+
         }
-         [Fact] //Dont forget Fact if you want to test
-            public void TestLoop()
+        [Fact] //Dont forget Fact if you want to test
+        public void TestLoop()
         {
             // arrange
             var booke = new Book("name");
             booke.AddGrade(5.1);
             booke.AddGrade(4.1);
             booke.AddGrade(3.1);
-            
+
             var result = booke.LoopMe();
             int first = result[0];
-            Assert.Equal( 0, first ); //"WHILE BIGGERTHAN includes the the number you want to be bigger than (when you count down)
+            Assert.Equal(0, first); //"WHILE BIGGERTHAN includes the the number you want to be bigger than (when you count down)
             int second = result[1];
-            Assert.Equal( 4, second ); //but when you count up it does not!
-          
-                     
-        
+            Assert.Equal(4, second); //but when you count up it does not!
+            int third = result[2];
+            Assert.Equal(69, third); //This test could POTENTIALLY fail, if the probability allows it to, but this should be rare and im too lazy to come up with a smart break; test for now
+
+
+
         }
 
         private void GetBookSetName(Book book1, string name) //Copies book, does not change original
         {
-         book1 = new Book(name); //new reference
+            book1 = new Book(name); //new reference
         }
 
-         private void GetBookSetNamebyRef(ref Book book1, string name) //Pass by reference
+        private void GetBookSetNamebyRef(ref Book book1, string name) //Pass by reference
         {
-         book1 = new Book(name);
+            book1 = new Book(name);
         }
 
         /*
@@ -138,5 +140,5 @@ namespace GradeBook.Tests //CREATE A SOLUTION FILE WITH: cd to gradebook and the
         Strings are immutable
         */
     }
-      
+
 }
