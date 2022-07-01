@@ -27,7 +27,7 @@ namespace GradeBook.Tests //CREATE A SOLUTION FILE WITH: cd to gradebook and the
         [Fact]
         public void TestException_TooHigh()
         {
-            var book = new Book("name");
+            var book = new InMemoryBook("name");
             Assert.Throws<ArgumentException>(() => book.AddGrade(8.1)); //Test exceptions!! :D
         }
 
@@ -35,7 +35,7 @@ namespace GradeBook.Tests //CREATE A SOLUTION FILE WITH: cd to gradebook and the
         public void TestAverage()
         {
             // arrange
-            var book = new Book("name");
+            var book = new InMemoryBook("name");
             book.AddGrade(5.1);
             book.AddGrade(4.1);
             book.AddGrade(3.1);
@@ -50,7 +50,7 @@ namespace GradeBook.Tests //CREATE A SOLUTION FILE WITH: cd to gradebook and the
         public void TestHigh()
         {
             // arrange
-            var book = new Book("name");
+            var book = new InMemoryBook("name");
             book.AddGrade(5.1);
             book.AddGrade(4.1);
             book.AddGrade(3.1);
@@ -66,7 +66,7 @@ namespace GradeBook.Tests //CREATE A SOLUTION FILE WITH: cd to gradebook and the
         public void TestChangeNameFromValue()
         {
             // arrange
-            var bookoldname = new Book("name");
+            var bookoldname = new InMemoryBook("name");
             bookoldname.Bookname = "newname";
 
 
@@ -78,7 +78,7 @@ namespace GradeBook.Tests //CREATE A SOLUTION FILE WITH: cd to gradebook and the
         public void TestAuthors()
         {
             // arrange
-            var authorbook = new Book("name");
+            var authorbook = new InMemoryBook("name");
 
             authorbook.AddAuthor("Manchester");
             authorbook.AddAuthor("United");
@@ -89,7 +89,7 @@ namespace GradeBook.Tests //CREATE A SOLUTION FILE WITH: cd to gradebook and the
         public void TestTwoVarsSameObject()
         {
             // arrange
-            var book1 = new Book("name");
+            var book1 = new InMemoryBook("name");
             var book2 = book1;
 
             Assert.Same(book1, book2);
@@ -101,8 +101,8 @@ namespace GradeBook.Tests //CREATE A SOLUTION FILE WITH: cd to gradebook and the
         public void TestTwoVarsDifferentObject()
         {
             // arrange
-            var book1 = new Book("name");
-            var book2 = new Book("name");
+            var book1 = new InMemoryBook("name");
+            var book2 = new InMemoryBook("name");
 
             Assert.NotSame(book1, book2);
 
@@ -113,8 +113,8 @@ namespace GradeBook.Tests //CREATE A SOLUTION FILE WITH: cd to gradebook and the
         public void TestChangeNameFalseforCopy()
         {
             // arrange
-            var book1 = new Book("name");
-            var book2 = new Book("Lame Name");
+            var book1 = new InMemoryBook("name");
+            var book2 = new InMemoryBook("Lame Name");
             
             GetBookSetName(book1, "New Name");
             GetBookSetNamebyRef(ref book2, "New Name"); // make it clear you want to pass by refrence with ref
@@ -129,7 +129,7 @@ namespace GradeBook.Tests //CREATE A SOLUTION FILE WITH: cd to gradebook and the
         public void TestLoop()
         {
             // arrange
-            var booke = new Book("name");
+            var booke = new InMemoryBook("name");
             booke.AddGrade(5.1);
             booke.AddGrade(4.1);
             booke.AddGrade(3.1);
@@ -150,7 +150,7 @@ namespace GradeBook.Tests //CREATE A SOLUTION FILE WITH: cd to gradebook and the
         public void TestLetter()
         {
             // arrange
-            var booke = new Book("name");
+            var booke = new InMemoryBook("name");
             booke.AddGrade(5.1);
             booke.AddGrade(4.1);
             booke.AddGrade(3.1);
@@ -160,14 +160,14 @@ namespace GradeBook.Tests //CREATE A SOLUTION FILE WITH: cd to gradebook and the
             Assert.Equal('C', stats.Letter);
         }
 
-        private void GetBookSetName(Book book1, string name) //Copies book, does not change original
+        private void GetBookSetName(InMemoryBook book1, string name) //Copies book, does not change original
         {
-            book1 = new Book(name); //new reference
+            book1 = new InMemoryBook(name); //new reference
         }
 
-        private void GetBookSetNamebyRef(ref Book book, string newname) //Pass by reference
+        private void GetBookSetNamebyRef(ref InMemoryBook book, string newname) //Pass by reference
         {
-            book = new Book(newname);
+            book = new InMemoryBook(newname);
         }
 
         /*

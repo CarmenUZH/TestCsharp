@@ -19,7 +19,7 @@ namespace GradeBook
             pi = 3.14;
             var fi = 4.13; //var basically implies: "I know you'll be figure out that fi is a double (no explicit type needed)"
 
-            var book = new Book("CarmensBook"); //needs to be initialized
+            var book = new InMemoryBook("CarmensBook"); //needs to be initialized
             book.AddGrade(GetRandomNumber());
             book.AddGrade(GetRandomNumber());
             book.AddGrade(GetRandomNumber());
@@ -30,7 +30,7 @@ namespace GradeBook
             Console.WriteLine($"Are you ready to see your Grades, {book.Bookname}? [Y] [N]");
             var input = Console.ReadLine();
             var done = false;
-            input = AskingForYes(input, done);
+            input = AskingForYes(input, done); //See method on bottom
 
             book.ShowStatistics();
             System.Console.WriteLine(book.GetStatistics().High);
@@ -39,13 +39,13 @@ namespace GradeBook
 
             System.Console.WriteLine("______________________________________________________________________________");
 
-            var secondbook = new Book("PhilsBook");
+            var secondbook = new InMemoryBook("PhilsBook");
             secondbook.AddGrade(GetRandomNumber());
             secondbook.AddGrade(GetRandomNumber());
             secondbook.AddGrade(GetRandomNumber());
             secondbook.AddGrade('A'); //Overload, but compiler knows which one i mean
             secondbook.AddGrade(GetRandomNumber());
-            string imsaying = Book.CONSTANTSTRING; //Because CONSTANTSTRING is constant i can treat it like a static thingy
+            string imsaying = InMemoryBook.CONSTANTSTRING; //Because CONSTANTSTRING is constant i can treat it like a static thingy
             System.Console.WriteLine(imsaying);
             secondbook.ShowStatistics();
 
@@ -76,7 +76,7 @@ namespace GradeBook
 
         }
 
-        private static string? AskingForYes(string? input, bool done) //Refactoring!
+        private static string? AskingForYes(string? input, bool done) //Refactoring! Enables Polymorphism
         {
             while (!done)
             {

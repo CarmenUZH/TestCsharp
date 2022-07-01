@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 namespace GradeBook
 {
-
-    public class Book : NamedObject
+    public class InMemoryBook : BookBased //cant inherit from two places so you need this workaround
     {
-        public Book(string bookname) : base(bookname) //For inherited classes that NEED constructor thingy
+        public InMemoryBook(string bookname) : base(bookname) //For inherited classes that NEED constructor thingy
         { //constructor method
             this.Bookname = bookname; //Public variables usually have upper-case names
             noten = new List<double>(); //class variable
@@ -43,7 +42,7 @@ namespace GradeBook
             }
         }
 
-        public void AddGrade(double note)
+        public override void AddGrade(double note) //override the abstract method
         { //Non static, requires book to work (Instance Method)
             if (note >= lowestPossibleGrade && note <= highestPossibleGrade)
             {
@@ -193,5 +192,7 @@ namespace GradeBook
             System.Console.WriteLine($"The average grade is {FindAverage():N2}"); //Formatting: Zwei zahlen nach dem Komma
             System.Console.WriteLine("The book belongs to: " + Bookname);
         }
+
+     
     }
 }
