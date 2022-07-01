@@ -5,11 +5,15 @@ namespace GradeBook
 {
     public class NamedObject
     {
+        public NamedObject(string name)
+        {
+            Bookname = name;
+        }
 
         public string Bookname
         {
             get;
             set;
-        } = "default Name";
+        }
     }
 }
