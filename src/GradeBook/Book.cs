@@ -5,9 +5,9 @@ namespace GradeBook
 
     public class Book : NamedObject
     {
-        public Book(string bookname)
+        public Book(string bookname) : base(bookname) //For inherited classes that NEED constructor thingy
         { //constructor method
-            Bookname = bookname; //Public variables usually have upper-case names
+            this.Bookname = bookname; //Public variables usually have upper-case names
             noten = new List<double>(); //class variable
             authors = new List<string>();
 
