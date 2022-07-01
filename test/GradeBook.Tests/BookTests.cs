@@ -69,9 +69,22 @@ namespace GradeBook.Tests //CREATE A SOLUTION FILE WITH: cd to gradebook and the
             var bookoldname = new Book("name");
             bookoldname.Bookname = "newname";
 
-            Assert.Equal("newname", bookoldname.Bookname);
-        }
 
+            Assert.Equal("newname", bookoldname.Bookname);
+
+        }
+        
+        [Fact] //Dont forget Fact if you want to test
+        public void TestAuthors()
+        {
+            // arrange
+            var authorbook = new Book("name");
+
+            authorbook.AddAuthor("Manchester");
+            authorbook.AddAuthor("United");
+
+            Assert.Equal("These are the Authors: Manchester, United", authorbook.AllAuthors());
+        }
         [Fact] //Dont forget Fact if you want to test
         public void TestTwoVarsSameObject()
         {
@@ -150,9 +163,9 @@ namespace GradeBook.Tests //CREATE A SOLUTION FILE WITH: cd to gradebook and the
             book1 = new Book(name); //new reference
         }
 
-        private void GetBookSetNamebyRef(ref Book book1, string name) //Pass by reference
+        private void GetBookSetNamebyRef(ref Book book, string newname) //Pass by reference
         {
-            book1 = new Book(name);
+            book = new Book(newname);
         }
 
         /*

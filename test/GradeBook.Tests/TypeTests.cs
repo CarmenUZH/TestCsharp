@@ -1,7 +1,7 @@
 using System;
 using Xunit;
 
-namespace GradeBook.Tests
+namespace GradeBook.Tests //It will say that only one "testdatei stimmt mit dem muster überein" but it means both TypeTest AND BookTest because the csproj file is important herer
 {
 
     public delegate string WriteLogDelegate(string logMessage); //delegates what a method is supposed to look like

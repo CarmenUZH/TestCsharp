@@ -3,12 +3,14 @@ using System.Collections.Generic;
 namespace GradeBook
 {
 
+    //public
     public class Book
     {
-        public Book(string Bookname)
+        public Book(string bookname)
         { //constructor method
             this.bookname = Bookname; //Public variables usually have upper-case names
             noten = new List<double>(); //class variable
+            authors = new List<string>();
 
         }
 
@@ -17,9 +19,9 @@ namespace GradeBook
         double myHighestGrade = double.MinValue; //Lowest possible double to start out
 
         public List<double> noten; //even if in constructor, needs to be in class too
-        private string bookname;
+        public List<string> authors;
         public const string CONSTANTSTRING = "Heheh you can't change me"; //Constant means you cant change it, uppercase to visually identify
-      
+        private string bookname;
         public string Bookname //Can be simplified with just "get; set;" like we've seen in .NETCore
         {
             get
@@ -32,6 +34,22 @@ namespace GradeBook
                 {
                     bookname = value;
                 }
+            }
+        }
+
+        public void AddAuthor(string name){
+            if (!String.IsNullOrEmpty(name)){
+                authors.Add(name);
+            }
+        }
+
+        public string AllAuthors(){
+            if (authors.Count()==0){
+                return "This Book has no Authors";
+            }
+            else{
+                string result = string.Join(", ", authors.ToArray()); //All list items to string
+                return ("These are the Authors: " + result);
             }
         }
 
