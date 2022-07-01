@@ -73,7 +73,7 @@ namespace GradeBook.Tests //CREATE A SOLUTION FILE WITH: cd to gradebook and the
             Assert.Equal("newname", bookoldname.Bookname);
 
         }
-        
+
         [Fact] //Dont forget Fact if you want to test
         public void TestAuthors()
         {
@@ -115,9 +115,11 @@ namespace GradeBook.Tests //CREATE A SOLUTION FILE WITH: cd to gradebook and the
             // arrange
             var book1 = new Book("name");
             var book2 = new Book("Lame Name");
+            
             GetBookSetName(book1, "New Name");
             GetBookSetNamebyRef(ref book2, "New Name"); // make it clear you want to pass by refrence with ref
-
+            
+            
             Assert.NotEqual("New Name", book1.Bookname);
             Assert.Equal("New Name", book2.Bookname);
 

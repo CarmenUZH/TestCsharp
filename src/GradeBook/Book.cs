@@ -3,12 +3,11 @@ using System.Collections.Generic;
 namespace GradeBook
 {
 
-    //public
-    public class Book
+    public class Book : NamedObject
     {
         public Book(string bookname)
         { //constructor method
-            this.bookname = Bookname; //Public variables usually have upper-case names
+            Bookname = bookname; //Public variables usually have upper-case names
             noten = new List<double>(); //class variable
             authors = new List<string>();
 
@@ -21,33 +20,24 @@ namespace GradeBook
         public List<double> noten; //even if in constructor, needs to be in class too
         public List<string> authors;
         public const string CONSTANTSTRING = "Heheh you can't change me"; //Constant means you cant change it, uppercase to visually identify
-        private string bookname;
-        public string Bookname //Can be simplified with just "get; set;" like we've seen in .NETCore
-        {
-            get
-            {
-                return bookname; //I could define that ALL names should be in upper case or something
-            }
-            set //You can make set private so your value is readonly
-            {
-                if (!String.IsNullOrEmpty(value))
-                {
-                    bookname = value;
-                }
-            }
-        }
 
-        public void AddAuthor(string name){
-            if (!String.IsNullOrEmpty(name)){
+
+        public void AddAuthor(string name)
+        {
+            if (!String.IsNullOrEmpty(name))
+            {
                 authors.Add(name);
             }
         }
 
-        public string AllAuthors(){
-            if (authors.Count()==0){
+        public string AllAuthors()
+        {
+            if (authors.Count() == 0)
+            {
                 return "This Book has no Authors";
             }
-            else{
+            else
+            {
                 string result = string.Join(", ", authors.ToArray()); //All list items to string
                 return ("These are the Authors: " + result);
             }
@@ -144,7 +134,7 @@ namespace GradeBook
             Random rnd = new Random();
 
             var thenumber = new List<int>();
-            while (thenumber.Count() < 20)
+            while (thenumber.Count() < 25)
             {
                 if (thenumber.Contains(69))
                 {
