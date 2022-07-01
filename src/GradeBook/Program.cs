@@ -19,9 +19,9 @@ namespace GradeBook
             pi = 3.14;
             var fi = 4.13; //var basically implies: "I know you'll be figure out that fi is a double (no explicit type needed)"
 
-            var book = new InMemoryBook("CarmensBook"); //needs to be initialized
+            IBook book = new InMemoryBook("CarmensBook"); //needs to be initialized
             book.AddGrade(GetRandomNumber());
-            book.AddGrade(GetRandomNumber());
+            //book.AddGrade('A'); //Overload, but compiler knows which one i mean
             book.AddGrade(GetRandomNumber());
             book.AddGrade(pi);//Me in French LMAO
             book.AddGrade(fi);
@@ -39,15 +39,15 @@ namespace GradeBook
 
             System.Console.WriteLine("______________________________________________________________________________");
 
-            var secondbook = new InMemoryBook("PhilsBook");
+            IBook secondbook = new DiskBook("PhilsBook");
             secondbook.AddGrade(GetRandomNumber());
             secondbook.AddGrade(GetRandomNumber());
             secondbook.AddGrade(GetRandomNumber());
-            secondbook.AddGrade('A'); //Overload, but compiler knows which one i mean
+            secondbook.AddGrade(5);
             secondbook.AddGrade(GetRandomNumber());
             string imsaying = InMemoryBook.CONSTANTSTRING; //Because CONSTANTSTRING is constant i can treat it like a static thingy
             System.Console.WriteLine(imsaying);
-            secondbook.ShowStatistics();
+
 
             /*
                         double[] numbers = new double[7]; //Initialize an array
@@ -75,7 +75,7 @@ namespace GradeBook
 
 
         }
-
+        //If i had a method for EnterGrades i would have to use BookBased because polymorphism
         private static string? AskingForYes(string? input, bool done) //Refactoring! Enables Polymorphism
         {
             while (!done)

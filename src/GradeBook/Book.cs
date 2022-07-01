@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 namespace GradeBook
 {
-    public class InMemoryBook : BookBased //cant inherit from two places so you need this workaround
+    public class InMemoryBook : BookBased //cant inherit from two places so you need this workaround, CAN have multiple interfaces
     {
         public InMemoryBook(string bookname) : base(bookname) //For inherited classes that NEED constructor thingy
         { //constructor method
@@ -148,7 +148,7 @@ namespace GradeBook
         }
 
 
-        public Statistics GetStatistics()
+        public override Statistics GetStatistics() //for interfaces
         {
             var result = new Statistics();
             result.Average = FindAverage();
@@ -184,7 +184,7 @@ namespace GradeBook
 
 
 
-        public void ShowStatistics()
+        public override void ShowStatistics()
         {
 
             Console.WriteLine("The highest value: " + FindHighest()); //Average ist weeeeird
