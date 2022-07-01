@@ -3,7 +3,7 @@ using System.Diagnostics.CodeAnalysis;
 
 namespace GradeBook
 {
-    public class NamedObject
+    public class NamedObject //inherits from ultimate base class called "object"
     {
         public NamedObject(string name)
         {
