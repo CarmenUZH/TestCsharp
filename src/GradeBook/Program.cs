@@ -33,7 +33,6 @@ namespace GradeBook
             input = AskingForYes(input, done); //See method on bottom
 
             book.ShowStatistics();
-            System.Console.WriteLine(book.GetStatistics().High);
             var stats = book.GetStatistics();
             System.Console.WriteLine($"The Letter is {stats.Letter}");
 
@@ -47,6 +46,7 @@ namespace GradeBook
             secondbook.AddGrade(GetRandomNumber());
             string imsaying = InMemoryBook.CONSTANTSTRING; //Because CONSTANTSTRING is constant i can treat it like a static thingy
             System.Console.WriteLine(imsaying);
+            secondbook.ShowStatistics();
 
 
             /*

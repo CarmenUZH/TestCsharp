@@ -14,7 +14,7 @@ namespace GradeBook
 
         double highestPossibleGrade = 6; // code smell hehe :]
         double lowestPossibleGrade = 1;
-        double myHighestGrade = double.MinValue; //Lowest possible double to start out
+        //double myHighestGrade = double.MinValue; //Lowest possible double to start out
 
         public List<double> noten; //even if in constructor, needs to be in class too
         public List<string> authors;
@@ -95,26 +95,6 @@ namespace GradeBook
                 System.Console.WriteLine("Trying to remove grade that isn't there");
             }
         }
-        private double FindHighest()
-        {
-            foreach (double number in noten)
-            {
-                if (number > myHighestGrade)
-                    myHighestGrade = number;
-            }
-            return myHighestGrade;
-
-        }
-
-        private double FindLowest()
-        {
-            return noten.AsQueryable().Min();
-        }
-
-        private double FindAverage()
-        {
-            return noten.AsQueryable().Average();
-        }
 
         public int[] LoopMe()
         { //An example function to test out loops in C#
@@ -150,35 +130,7 @@ namespace GradeBook
 
         public override Statistics GetStatistics() //for interfaces
         {
-            var result = new Statistics();
-            result.Average = FindAverage();
-            result.High = FindHighest();
-            result.Low = FindLowest();
-
-            switch (result.Average)
-            {
-                case var d when d >= 5.5:
-                    result.Letter = 'A';
-                    break;
-                case var d when d >= 4.5:
-                    result.Letter = 'B';
-                    break;
-
-                case var d when d >= 3.5:
-                    result.Letter = 'C';
-                    break;
-                case var d when d >= 2.5:
-                    result.Letter = 'D';
-                    break;
-
-                case var d when d >= 2:
-                    result.Letter = 'E';
-                    break;
-
-                default:
-                    result.Letter = 'F';
-                    break;
-            }
+            var result = new Statistics(noten);
             return result;
         }
 
@@ -187,9 +139,9 @@ namespace GradeBook
         public override void ShowStatistics()
         {
 
-            Console.WriteLine("The highest value: " + FindHighest()); //Average ist weeeeird
-            System.Console.WriteLine("The lowest value: " + FindLowest());
-            System.Console.WriteLine($"The average grade is {FindAverage():N2}"); //Formatting: Zwei zahlen nach dem Komma
+            Console.WriteLine("The highest value: " + GetStatistics().High); //Average ist weeeeird
+            System.Console.WriteLine("The lowest value: " + GetStatistics().Low);
+            System.Console.WriteLine($"The average grade is {GetStatistics().Average:N2}"); //Formatting: Zwei zahlen nach dem Komma
             System.Console.WriteLine("The book belongs to: " + Bookname);
         }
 
