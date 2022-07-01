@@ -30,19 +30,7 @@ namespace GradeBook
             Console.WriteLine($"Are you ready to see your Grades, {book.Bookname}? [Y] [N]");
             var input = Console.ReadLine();
             var done = false;
-            while (!done)
-            {
-                if (input == "Y" || input == "y")
-                {
-                    break;
-                }
-
-                //Check his code to see example of Try and Catch ( Or check SoftCon)
-
-                Console.WriteLine("Im asking again: Are you ready?");
-                input = Console.ReadLine(); //WHILE LOOP!! NEVER FORGET
-
-            }
+            input = AskingForYes(input, done);
 
             book.ShowStatistics();
             System.Console.WriteLine(book.GetStatistics().High);
@@ -86,6 +74,25 @@ namespace GradeBook
 
 
 
+        }
+
+        private static string? AskingForYes(string? input, bool done) //Refactoring!
+        {
+            while (!done)
+            {
+                if (input == "Y" || input == "y")
+                {
+                    break;
+                }
+
+                //Check his code to see example of Try and Catch ( Or check SoftCon)
+
+                Console.WriteLine("Im asking again: Are you ready?");
+                input = Console.ReadLine(); //WHILE LOOP!! NEVER FORGET
+
+            }
+
+            return input;
         }
     }
 }
