@@ -37,25 +37,25 @@ namespace GradeBook
                 {
                     case var d when d >= 5.5:
                         return 'A';
-                      
+
                     case var d when d >= 4.5:
                         return 'B';
-                      
+
 
                     case var d when d >= 3.5:
-                        return  'C';
-                    
+                        return 'C';
+
                     case var d when d >= 2.5:
-                    return 'D';
-                    
+                        return 'D';
+
 
                     case var d when d >= 2:
-                        return  'E';
-                   
+                        return 'E';
+
 
                     default:
-                        return  'F';
-                
+                        return 'F';
+
                 }
             }
         }
