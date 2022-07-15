@@ -140,7 +140,8 @@ namespace GradeBook.Tests //CREATE A SOLUTION FILE WITH: cd to gradebook and the
             int second = result[1];
             Assert.Equal(4, second); //but when you count up it does not!
             int third = result[2];
-            Assert.Equal(69, third); //This test could POTENTIALLY fail, if the probability allows it to, but this should be rare and im too lazy to come up with a smart break; test for now
+            Assert.Equal(69, third); //This test could POTENTIALLY fail, if the probability allows it to$
+            //Who needs russian roulette when you're a programmer, am I right fellas??
 
 
 
