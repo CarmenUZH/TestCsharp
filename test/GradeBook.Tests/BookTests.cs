@@ -8,24 +8,6 @@ namespace GradeBook.Tests //CREATE A SOLUTION FILE WITH: cd to gradebook and the
     //When you set up a temporary test-database dont forget to drop it to save space
     {
 
-        /*      [Fact]
-              public void TestWrongInput()
-              {
-                  // arrange
-                  var book = new Book("name");
-                  book.AddGrade(8.1);//ZU HOCH
-                  book.AddGrade(1.0);
-                  book.AddGrade(0.4);//ZU TIEF
-
-
-                  // act
-                  var result = book.GetStatistics();//vergiss die klammern nicht!!
-
-                  // assert
-                  Assert.NotEqual(8.1, result.High);
-                  Assert.NotEqual(0.4, result.Low);
-              }*/
-
         [Fact]
         public void TestException_TooHigh()
         {
@@ -56,9 +38,7 @@ namespace GradeBook.Tests //CREATE A SOLUTION FILE WITH: cd to gradebook and the
             book.AddGrade(5.1);
             book.AddGrade(4.1);
             book.AddGrade(3.1);
-
             var result = book.GetStatistics();
-
             Assert.Equal(5.1, result.High);
 
 
@@ -117,11 +97,11 @@ namespace GradeBook.Tests //CREATE A SOLUTION FILE WITH: cd to gradebook and the
             // arrange
             var book1 = new InMemoryBook("name");
             var book2 = new InMemoryBook("Lame Name");
-            
+
             GetBookSetName(book1, "New Name");
             GetBookSetNamebyRef(ref book2, "New Name"); // make it clear you want to pass by refrence with ref
-            
-            
+
+
             Assert.NotEqual("New Name", book1.Bookname);
             Assert.Equal("New Name", book2.Bookname);
 
