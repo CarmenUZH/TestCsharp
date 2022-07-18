@@ -5,6 +5,7 @@ namespace GradeBook.Tests //CREATE A SOLUTION FILE WITH: cd to gradebook and the
 {
     public class BookTests //These are all Unit tests. An integration test looks quite similar to an Unit test but there is more setup and so
     //For Integration tests its more important to really figure out what is setup and what is test so you an abstract the setup away and not repeat yourself all the time
+    //When you set up a temporary test-database dont forget to drop it to save space
     {
 
         /*      [Fact]
